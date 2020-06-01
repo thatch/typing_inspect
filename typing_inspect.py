@@ -22,6 +22,11 @@ if NEW_TYPING:
     from typing import (
         Generic, Callable, Union, TypeVar, ClassVar, Tuple, _GenericAlias, ForwardRef
     )
+    try:
+        from typing import _SpecialGenericAlias
+        _GenericAlias = (_GenericAlias, _SpecialGenericAlias)
+    except:
+        pass
     from typing_extensions import Literal
 else:
     from typing import (
